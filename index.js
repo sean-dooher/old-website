@@ -2,7 +2,7 @@
 * @Author: sean
 * @Date:   2017-04-26 19:08:37
 * @Last Modified by:   sean-dooher
-* @Last Modified time: 2017-07-14 23:44:09
+* @Last Modified time: 2017-07-15 00:08:42
 */
 
 'use strict';
@@ -20,7 +20,7 @@ function scrollToY(y, duration) {
 	var localTarget = scrollTarget;
 	var diff = scrollTarget - startY;
 	var start;
-
+	isScrolling = true;
 	function step(timeStamp) {
 		if(!start) {
 			start = timeStamp;
@@ -46,11 +46,14 @@ function scrollToY(y, duration) {
 	}
 }
 
-function changeActiveNav(newNavElement) {
+function changeActiveNav(newNavNode) {
 	if(!isScrolling) {
 		var activeNode = document.getElementsByClassName("navbar-item active")[0];
-		activeNode.classList.remove('active');
-		newNavElement.classList.add('active');
+		if(activeNode !== newNavNode) {
+			console.log(newNavNode);
+			activeNode.classList.remove('active');
+			newNavNode.classList.add('active');
+		}
 	}		
 }
 
@@ -61,6 +64,7 @@ document.onclick = function (e) {
   	var destinationName = element.firstChild.data.toLowerCase();
   	var destination = document.getElementById(destinationName);
   	isScrolling = false;
+  	changeActiveNav(element);
   	if(element === document.getElementsByClassName("navbar-item")[0]) {
   		scrollToY(0, 1500);
   	} else {
@@ -71,3 +75,18 @@ document.onclick = function (e) {
   }
 };
 
+var contentBoxes = document.getElementsByClassName("content-box");
+function findActiveNav() {
+	//TODO: change method of finding new li
+	var center = window.pageYOffset + window.innerHeight / 2;
+	for(var i = 1; i < contentBoxes.length; i++) {
+		if(center >= contentBoxes[i].offsetTop 
+			&& center <= contentBoxes[i].offsetTop + contentBoxes[i].offsetHeight) {
+			console.log('a[href="#' + contentBoxes[i].id + '"] > li');
+			changeActiveNav(document.querySelectorAll('a[href="#' + contentBoxes[i].id + '"] > li')[0]);
+		}
+	}
+}
+
+window.onscroll = findActiveNav;
+window.onresize = findActiveNav;
