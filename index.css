@@ -2,7 +2,7 @@
 * @Author: sean
 * @Date:   2017-04-26 19:08:44
 * @Last Modified by:   sean-dooher
-* @Last Modified time: 2017-07-14 23:42:46
+* @Last Modified time: 2017-07-15 14:36:34
 */
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -69,23 +69,24 @@ img {
 	width: 30%;
 	height: 15%;
 }
+
 nav {
 	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 1;
-	background-color: black;
+	background-color: #111;
 	border: 0px;
 	padding:0px;
 	width:100%;
-    min-width: 600px;
+	height: 3rem;
     top: 0;
+    justify-content: center;
+	font-family: 'Open Sans', sans-serif;
 }
 
-.navbar.large {
-	opacity: .75;
-	justify-content: center;
-    font-family: 'Open Sans', sans-serif;
+nav a, nav ul a {
+	outline: 0;
 }
 
 .navbar-item {
@@ -94,21 +95,29 @@ nav {
 	cursor: pointer;
 	color: white;
 	display: inline-block;
-	padding: 15px 0em 15px 0em;
+	padding: 15px 0em;
 	width: 10em;
 	height: 3em;
 	margin: 0px;
+	border: 0px;
 	opacity: 1;
+	font-size: 16px;
 }
 
 nav ul {
 	overflow: auto;
 	text-align: center;
-	align-items: center;
 	padding: 0px;
 	margin: 0px;
 }
 
+.menu-icon {
+	display: none;
+}
+
+.close-button {
+	display: none;
+}
 
 .active, nav li:hover {
 	color: black;
@@ -122,16 +131,11 @@ nav ul {
 .content-header{
 	font-size: 20px;
 	font-family: 'Open Sans', sans-serif;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 0 auto 20px auto;
 	text-align: center;
 	color: #444;
 	padding: 5px;
-	margin-bottom: 20px;
-	border: 2px solid #bbb;
-	border-top: 0px;
-	border-left: 0px;
-	border-right: 0px;
+	border-bottom: 2px solid #bbb;
 	width: 120px;
 }
 
@@ -140,12 +144,10 @@ nav ul {
 	border-bottom: 1px solid #ccc;
 	padding: 10px;
 	padding-top: 60px;
-	margin: 10px;
+	margin: 10px auto;
 	margin-top: -50px;
 	width:40%;
-	min-width: 600px;
-	margin-left: auto;
-	margin-right: auto;
+	min-width: 320px;
 	border-width: 100%;
 }
 
@@ -158,7 +160,7 @@ nav ul {
 	width: 100%;
     margin: 0 auto;
 	background-color: white;
-	border: 1px solid gray;
+	border: 1px solid #818181;
 }
 
 .banner {
@@ -175,7 +177,7 @@ nav ul {
 	padding-top: 50px;
 	margin: auto;
 	width: 100%;
-	min-width: 600px;
+	min-width: 320px;
 	vertical-align: middle;
 	z-index: 1;
 	text-align: center;
@@ -216,16 +218,19 @@ h1 {
 	font-size: 50px;
 	color: #fff;
 }
+
 h3 {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 30px;
 	color: #fff;
 }
+
 h5 {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 20px;
 	color: #fff;
 }
+
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -234,4 +239,105 @@ h5 {
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
+}
+
+
+@media screen and (min-width: 700px) {
+	nav {
+		opacity: .75;
+	}
+}
+
+@media screen and (min-width: 320px) and (max-width: 700px) {
+	.navbar-item {
+		display: none;
+		text-transform: center;
+		width: 100%;
+		margin: 25px auto;
+		font-size: 30px;
+	}
+
+	nav ul {
+		overflow: hidden;
+		height: 0;
+		transition-delay: 0.25;
+		transition-duration: 0.5s;
+	}
+
+	.menu-icon {
+		font-size: 1.5rem;
+		position: fixed;
+		top: 0px;
+		right: 0px;
+		z-index: 2;
+		display: inline-block;
+		text-align: center;
+		padding: .5rem 0;
+		height: 3rem;
+		width: 64px;
+		color: #818181;
+	}
+
+	.menu-icon:hover {
+		color: #111;
+		background-color: darkgray;
+	}
+
+	nav.sidebar ul {
+		width: 100%;
+		padding: 100px 0 0 0;
+		height: 100%;
+	}
+
+	nav.sidebar {
+		width: 100%;
+		height: 100%;
+		background-color: #111;
+	}
+
+	nav {
+		-webkit-transition-duration: 0.5s; /* Safari */
+   		transition-duration: 0.5s;
+	}
+
+	nav.sidebar .menu-icon {
+		display: none;
+	}
+
+	nav.sidebar ul a .navbar-item {
+		display: block;
+	}
+
+	nav.sidebar a {
+		width: 100%;
+		height: 20%;
+	}
+
+	nav.sidebar a.close-button {
+		font-size: 3.5rem;
+		position: fixed;
+		top: 0px;
+		right: 0px;
+		z-index: 2;
+		display: inline-block;
+		text-align: right;
+		padding: .5rem 0;
+		padding-right: 1.5rem;
+		height: 3rem;
+		width: 128px;
+		color: white;
+	}
+
+	nav.sidebar a.close-button:hover {
+		color: #818181;
+	}
+
+	.active, nav li:hover {
+		color: #818181;
+		background-color: inherit;
+	}
+
+	.active {
+		text-decoration: none;
+	}
 }

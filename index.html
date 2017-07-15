@@ -8,13 +8,15 @@
 		<script src="index.js" defer></script>
 	</head>
 	<body>
-		<nav class="navbar large">
+		<nav>
 			<ul>
-				<a href="#about"><li class="navbar-item active noselect">About</li></a><!--
+				<a href="#about"><li class="noselect navbar-item active">About</li></a><!--
 			 --><a href="#projects"><li class="noselect navbar-item">Projects</li></a><!--
 			 --><a href="#experience"><li class="noselect navbar-item">Experience</li></a><!--
-			 --><a href="#contact"><li class="noselect navbar-item">Contact</li></a><
+			 --><a href="#contact"><li class="noselect navbar-item">Contact</li></a>
 			</ul>
+			<a href="javascript:void(0);" onclick="openSideBar()" class="noselect menu-icon">&#9776;</a>
+			<a href="javascript:void(0);" onclick="closeSideBar()" class="noselect close-button">&times;</a>
 		</nav>
 		<div class="banner">
 			<div id="profile-box">

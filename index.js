@@ -2,11 +2,12 @@
 * @Author: sean
 * @Date:   2017-04-26 19:08:37
 * @Last Modified by:   sean-dooher
-* @Last Modified time: 2017-07-15 00:08:42
+* @Last Modified time: 2017-07-15 14:25:19
 */
 
 'use strict';
 var isScrolling = false;
+var sideBarOpen = false;
 var scrollTarget = 0;
 var body = document.body,
     html = document.documentElement;
@@ -71,6 +72,9 @@ document.onclick = function (e) {
   		scrollToY(destination.offsetTop, 1500);
   	}
   	changeActiveNav(element);
+  	if(sideBarOpen) {
+  		closeSideBar();
+  	}
   	return false;
   }
 };
@@ -82,7 +86,6 @@ function findActiveNav() {
 	for(var i = 1; i < contentBoxes.length; i++) {
 		if(center >= contentBoxes[i].offsetTop 
 			&& center <= contentBoxes[i].offsetTop + contentBoxes[i].offsetHeight) {
-			console.log('a[href="#' + contentBoxes[i].id + '"] > li');
 			changeActiveNav(document.querySelectorAll('a[href="#' + contentBoxes[i].id + '"] > li')[0]);
 		}
 	}
@@ -90,3 +93,17 @@ function findActiveNav() {
 
 window.onscroll = findActiveNav;
 window.onresize = findActiveNav;
+
+function openSideBar() {
+	if(!sideBarOpen) {
+		document.getElementsByTagName("nav")[0].classList.add("sidebar");
+		sideBarOpen = true;
+	}
+}
+
+function closeSideBar() {
+	if(sideBarOpen) {
+		document.getElementsByTagName("nav")[0].classList.remove("sidebar");
+		sideBarOpen = false;
+	}
+}
