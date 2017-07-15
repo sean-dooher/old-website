@@ -2,7 +2,7 @@
 * @Author: sean
 * @Date:   2017-04-26 19:08:44
 * @Last Modified by:   sean-dooher
-* @Last Modified time: 2017-07-15 14:36:34
+* @Last Modified time: 2017-07-15 15:27:06
 */
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -241,7 +241,6 @@ h5 {
                                   supported by Chrome and Opera */
 }
 
-
 @media screen and (min-width: 700px) {
 	nav {
 		opacity: .75;
@@ -253,14 +252,18 @@ h5 {
 		display: none;
 		text-transform: center;
 		width: 100%;
-		margin: 25px auto;
+		margin: 15nav.sidebar ul a .navbar-item {
+		display: block;
+	}px auto;
 		font-size: 30px;
 	}
 
+	html.hidden {
+		overflow: hidden;
+	}
 	nav ul {
 		overflow: hidden;
 		height: 0;
-		transition-delay: 0.25;
 		transition-duration: 0.5s;
 	}
 
@@ -291,8 +294,10 @@ h5 {
 
 	nav.sidebar {
 		width: 100%;
-		height: 100%;
+		height: 100vh;
 		background-color: #111;
+		overflow-y: scroll;
+    	-webkit-overflow-scrolling:touch;
 	}
 
 	nav {
@@ -304,7 +309,7 @@ h5 {
 		display: none;
 	}
 
-	nav.sidebar ul a .navbar-item {
+	nav.sidebar .navbar-item {
 		display: block;
 	}
 
@@ -340,4 +345,6 @@ h5 {
 	.active {
 		text-decoration: none;
 	}
+
+
 }
