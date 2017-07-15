@@ -2,7 +2,7 @@
 * @Author: sean
 * @Date:   2017-04-26 19:08:37
 * @Last Modified by:   sean-dooher
-* @Last Modified time: 2017-07-15 15:31:24
+* @Last Modified time: 2017-07-15 16:28:00
 */
 
 'use strict';
@@ -51,7 +51,6 @@ function changeActiveNav(newNavNode) {
 	if(!isScrolling) {
 		var activeNode = document.getElementsByClassName("navbar-item active")[0];
 		if(activeNode !== newNavNode) {
-			console.log(newNavNode);
 			activeNode.classList.remove('active');
 			newNavNode.classList.add('active');
 		}
@@ -61,17 +60,16 @@ function changeActiveNav(newNavNode) {
 document.onclick = function (e) {
   e = e ||  window.event;
   var element = e.target || e.srcElement;
-  if (element.tagName == 'LI' && element.classList.contains("navbar-item")) {
+  if (element.tagName == 'A' && element.parentElement.classList.contains("navbar-item")) {
   	var destinationName = element.firstChild.data.toLowerCase();
   	var destination = document.getElementById(destinationName);
   	isScrolling = false;
-  	changeActiveNav(element);
-  	if(element === document.getElementsByClassName("navbar-item")[0]) {
+  	changeActiveNav(element.parentElement);
+  	if(element.parentElement === document.getElementsByClassName("navbar-item")[0]) {
   		scrollToY(0, 1500);
   	} else {
   		scrollToY(destination.offsetTop, 1500);
   	}
-  	changeActiveNav(element);
   	if(sideBarOpen) {
   		closeSideBar();
   	}
@@ -86,14 +84,14 @@ function findActiveNav() {
 	for(var i = 1; i < contentBoxes.length; i++) {
 		if(center >= contentBoxes[i].offsetTop 
 			&& center <= contentBoxes[i].offsetTop + contentBoxes[i].offsetHeight) {
-			changeActiveNav(document.querySelectorAll('a[href="#' + contentBoxes[i].id + '"] > li')[0]);
+			changeActiveNav(document.querySelectorAll('a[href="#' + contentBoxes[i].id + '"]')[0].parentElement);
 		}
 	}
 }
 
 window.onscroll = findActiveNav;
 window.onresize = function() {
-	if(window.matchMedia("screen and (min-width: 700px)") && sideBarOpen) {
+	if(window.matchMedia("screen and (min-width: 700px)").matches && sideBarOpen) {
 		closeSideBar();
 	}
 	findActiveNav();

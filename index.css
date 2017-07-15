@@ -2,7 +2,7 @@
 * @Author: sean
 * @Date:   2017-04-26 19:08:44
 * @Last Modified by:   sean-dooher
-* @Last Modified time: 2017-07-15 15:27:06
+* @Last Modified time: 2017-07-15 16:23:04
 */
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -85,22 +85,25 @@ nav {
 	font-family: 'Open Sans', sans-serif;
 }
 
-nav a, nav ul a {
+nav a, nav ul li a {
 	outline: 0;
 }
 
 .navbar-item {
 	-webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
-	cursor: pointer;
 	color: white;
+	display: inline-block;
+	margin: 0px;
+	border: 0px;
+	opacity: 1;
+}
+
+.navbar-item a {
 	display: inline-block;
 	padding: 15px 0em;
 	width: 10em;
 	height: 3em;
-	margin: 0px;
-	border: 0px;
-	opacity: 1;
 	font-size: 16px;
 }
 
@@ -148,7 +151,6 @@ nav ul {
 	margin-top: -50px;
 	width:40%;
 	min-width: 320px;
-	border-width: 100%;
 }
 
 .content {
@@ -159,6 +161,7 @@ nav ul {
 	overflow: hidden;
 	width: 100%;
     margin: 0 auto;
+    padding-top: 0;
 	background-color: white;
 	border: 1px solid #818181;
 }
@@ -168,7 +171,7 @@ nav ul {
 	position: relative;
 	display: inline-block;
 	width: 100%;
-	height: 450px;
+	height: 475px;
 	background-size: cover;
 	background-position: center;
 }
@@ -186,6 +189,7 @@ nav ul {
 }
 
 #profile-text {
+	display: inline-block;
 	margin-left: auto;
 	margin-right: auto;
 	width: 50%;
@@ -193,7 +197,7 @@ nav ul {
 	display: inline;
 	text-align: center;
 	vertical-align: middle;
-	white-space: nowrap
+	white-space: nowrap;
 	color: #333;
 }
 
@@ -239,6 +243,7 @@ h5 {
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
+            user-select: none;
 }
 
 @media screen and (min-width: 700px) {
@@ -250,12 +255,17 @@ h5 {
 @media screen and (min-width: 320px) and (max-width: 700px) {
 	.navbar-item {
 		display: none;
-		text-transform: center;
+	}
+
+	.navbar-item a {
+		text-align: center;
 		width: 100%;
-		margin: 15nav.sidebar ul a .navbar-item {
-		display: block;
-	}px auto;
+		margin: 15px auto;
 		font-size: 30px;
+	}
+
+	nav.sidebar .navbar-item {
+		display: block;
 	}
 
 	html.hidden {
