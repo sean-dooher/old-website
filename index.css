@@ -1,8 +1,8 @@
 /*
 * @Author: sean
 * @Date:   2017-04-26 19:08:44
-* @Last Modified by:   sean
-* @Last Modified time: 2017-07-14 22:52:21
+* @Last Modified by:   sean-dooher
+* @Last Modified time: 2017-07-14 23:42:46
 */
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -110,12 +110,12 @@ nav ul {
 }
 
 
-.active-nav, nav li:hover {
+.active, nav li:hover {
 	color: black;
 	background-color: darkgray;
 }
 
-.active-nav {
+.active {
 	text-decoration: underline;
 }
 
@@ -139,9 +139,9 @@ nav ul {
 	border: 0px;
 	border-bottom: 1px solid #ccc;
 	padding: 10px;
-	padding-top: 75px;
+	padding-top: 60px;
 	margin: 10px;
-	margin-top: -65px;
+	margin-top: -50px;
 	width:40%;
 	min-width: 600px;
 	margin-left: auto;
