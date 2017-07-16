@@ -2,7 +2,7 @@
 * @Author: sean
 * @Date:   2017-04-26 19:08:44
 * @Last Modified by:   sean-dooher
-* @Last Modified time: 2017-07-15 16:23:04
+* @Last Modified time: 2017-07-15 18:12:33
 */
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -143,7 +143,7 @@ nav ul {
 }
 
 .content-box {
-	border: 0px;
+	border: none;
 	border-bottom: 1px solid #ccc;
 	padding: 10px;
 	padding-top: 60px;
@@ -153,8 +153,13 @@ nav ul {
 	min-width: 320px;
 }
 
+.content-box:last-of-type {
+	border-bottom: none;
+}
+
 .content {
 	font-family: 'Open Sans', sans-serif;
+	color: #555555;
 }
 
 #main-content {
@@ -244,6 +249,76 @@ h5 {
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
             user-select: none;
+}
+
+
+form {
+    font-family: 'Open Sans', arial, sans;
+    min-width: 320px;
+    max-width: 500px;
+    padding: 30px;
+    background: #FFFFFF;
+    margin: 50px auto;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="time"],
+form textarea
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px 0;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+}
+
+form .g-recaptcha {
+	box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 50px;
+    padding: 7px 0;
+    background: transparent;
+    margin-bottom: 10px;
+}
+
+form textarea{
+    resize:none;
+    overflow: hidden;
+}
+form input[type="button"],
+form input[type="submit"]{
+    -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    background-color: #2CBBBB;
+    border: 1px solid #27A0A0;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 14px;
+    padding: 8px 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+form input[type="button"]:hover,
+form input[type="submit"]:hover {
+    background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+    background-color:#34CACA;
 }
 
 @media screen and (min-width: 700px) {
@@ -349,12 +424,19 @@ h5 {
 
 	.active, nav li:hover {
 		color: #818181;
-		background-color: inherit;
+		background-color: inherit;q
 	}
 
 	.active {
 		text-decoration: none;
 	}
+}
 
-
+@media screen and (max-height: 575px){ 
+	#rc-imageselect, .g-recaptcha {
+		transform:scale(0.85);
+		-webkit-transform:scale(0.85);
+		transform-origin:0 0;
+		-webkit-transform-origin:0 0;
+	}
 }

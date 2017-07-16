@@ -6,6 +6,8 @@
 		<title>Sean Dooher - Student</title>
 		<link rel="stylesheet" type="text/css" href="index.css"/>
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+		<script src='https://www.google.com/recaptcha/api.js'></script>
+		<script src="https://use.fontawesome.com/41da94ab9e.js"></script>
 		<script src="index.js" defer></script>
 	</head>
 	<body>
@@ -62,7 +64,14 @@
 			<div id="contact" class = "content-box">
 				<h3 class="content-header">Contact</h3>
 				<div class="content">
-					<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a tristique est. Nunc tincidunt convallis ex non sollicitudin. Phasellus fermentum urna orci, quis venenatis odio vestibulum vitae. Duis faucibus suscipit blandit. Ut et convallis tellus. Nam pulvinar, purus nec pulvinar blandit, quam magna accumsan orci, vel efficitur nunc tortor sed erat. In felis mauris, bibendum at pellentesque id, fermentum at felis. Morbi dignissim diam id venenatis accumsan. Vivamus tempus lectus vitae turpis vehicula, vitae placerat tellus semper. Fusce facilisis dolor non faucibus tempor. Vestibulum lacinia rutrum condimentum. Nullam feugiat rutrum vulputate. Ut scelerisque porta mauris, id rutrum ipsum dapibus id. Pellentesque eget mi eu libero fermentum posuere. Suspendisse vel ultrices odio.</p>
+					<form action="">
+						<input type="text" name="text" placeholder="Full Name" />
+						<input type="email" name="email" placeholder="Email" />
+						<input type="text" name="subject" placeholder="Subject" />
+						<textarea placeholder="Message" onkeyup="adjust_textarea(this)"></textarea>
+						<div class="g-recaptcha" data-sitekey="TEMP KEY"></div>
+						<input type="button" value="Send Message" />
+					</form>
 				</div>
 			</div>
 		</div>
