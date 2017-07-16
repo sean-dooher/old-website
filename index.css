@@ -2,7 +2,7 @@
 * @Author: sean
 * @Date:   2017-04-26 19:08:44
 * @Last Modified by:   sean-dooher
-* @Last Modified time: 2017-07-15 18:12:33
+* @Last Modified time: 2017-07-15 19:27:53
 */
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -131,6 +131,20 @@ nav ul {
 	text-decoration: underline;
 }
 
+footer {
+	font-family: 'Open Sans', sans-serif;
+	margin: 10px;
+}
+
+footer p {
+	width: 100%;
+	font-size: 10px;
+	margin: auto auto;
+	vertical-align: middle;
+	text-align: center;
+	color: #b4b4b4;
+}
+
 .content-header{
 	font-size: 20px;
 	font-family: 'Open Sans', sans-serif;
@@ -161,6 +175,22 @@ nav ul {
 	font-family: 'Open Sans', sans-serif;
 	color: #555555;
 }
+
+footer table {
+	margin: 0 auto 20px auto;
+	text-align: center;
+	font-size: 48px;
+	color: #555;
+}
+
+footer table td:nth-of-type(2n) {
+	width: 48px;
+	height: 100%;
+}
+footer table a {
+	outline: 0;
+}
+
 
 #main-content {
 	overflow: hidden;
@@ -258,8 +288,7 @@ form {
     max-width: 500px;
     padding: 30px;
     background: #FFFFFF;
-    margin: 50px auto;
-    margin-top: 0px;
+    margin: 0 auto;
     padding-top: 0px;
 }
 
@@ -281,6 +310,7 @@ form textarea
     margin-bottom: 10px;
     font: 16px Arial, Helvetica, sans-serif;
     height: 45px;
+    transition: .25s;
 }
 
 form .g-recaptcha {
@@ -327,7 +357,7 @@ form input[type="submit"]:hover {
 	}
 }
 
-@media screen and (min-width: 320px) and (max-width: 700px) {
+@media screen and (max-width: 700px) {
 	.navbar-item {
 		display: none;
 	}
