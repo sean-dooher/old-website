@@ -2,7 +2,7 @@
 * @Author: sean
 * @Date:   2017-04-26 19:08:44
 * @Last Modified by:   sean-dooher
-* @Last Modified time: 2017-07-15 19:27:53
+* @Last Modified time: 2017-07-16 01:12:22
 */
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -64,12 +64,6 @@ a {
     box-sizing: border-box;
 }
 
-img {
-	display: inline-block;
-	width: 30%;
-	height: 15%;
-}
-
 nav {
 	position: fixed;
 	top: 0;
@@ -81,11 +75,10 @@ nav {
 	width:100%;
 	height: 3rem;
     top: 0;
-    justify-content: center;
 	font-family: 'Open Sans', sans-serif;
 }
 
-nav a, nav ul li a {
+.no-outline {
 	outline: 0;
 }
 
@@ -94,9 +87,6 @@ nav a, nav ul li a {
     transition-duration: 0.4s;
 	color: white;
 	display: inline-block;
-	margin: 0px;
-	border: 0px;
-	opacity: 1;
 }
 
 .navbar-item a {
@@ -108,21 +98,15 @@ nav a, nav ul li a {
 }
 
 nav ul {
-	overflow: auto;
-	text-align: center;
 	padding: 0px;
 	margin: 0px;
 }
 
-.menu-icon {
+.sidebar-icon {
 	display: none;
 }
 
-.close-button {
-	display: none;
-}
-
-.active, nav li:hover {
+.active, nav li:hover, .menu-icon:hover {
 	color: black;
 	background-color: darkgray;
 }
@@ -140,31 +124,35 @@ footer p {
 	width: 100%;
 	font-size: 10px;
 	margin: auto auto;
-	vertical-align: middle;
-	text-align: center;
 	color: #b4b4b4;
 }
 
-.content-header{
-	font-size: 20px;
+h2.content-header{
+	font-size: 22px;
 	font-family: 'Open Sans', sans-serif;
 	margin: 0 auto 20px auto;
 	text-align: center;
 	color: #444;
-	padding: 5px;
+}
+
+.content-header::after {
+	content: "";
+	height: 0px;
+	display: block;
+	margin: 5px auto;
 	border-bottom: 2px solid #bbb;
 	width: 120px;
 }
 
+#projects .content-header::after {
+	width: 200px;
+}
+
 .content-box {
-	border: none;
 	border-bottom: 1px solid #ccc;
-	padding: 10px;
-	padding-top: 60px;
-	margin: 10px auto;
-	margin-top: -50px;
-	width:40%;
-	min-width: 320px;
+	padding: 60px 10px 10px 10px;
+	margin: -50px auto 10px auto;
+	width: 750px;
 }
 
 .content-box:last-of-type {
@@ -187,9 +175,6 @@ footer table td:nth-of-type(2n) {
 	width: 48px;
 	height: 100%;
 }
-footer table a {
-	outline: 0;
-}
 
 
 #main-content {
@@ -204,7 +189,6 @@ footer table a {
 .banner {
 	background-image: url('img/banner_front.jpg');
 	position: relative;
-	display: inline-block;
 	width: 100%;
 	height: 475px;
 	background-size: cover;
@@ -213,10 +197,8 @@ footer table a {
 
 #profile-box {
 	padding-top: 50px;
-	margin: auto;
 	width: 100%;
 	min-width: 320px;
-	vertical-align: middle;
 	z-index: 1;
 	text-align: center;
 	text-transform: uppercase;
@@ -231,7 +213,6 @@ footer table a {
 	height: 300px;
 	display: inline;
 	text-align: center;
-	vertical-align: middle;
 	white-space: nowrap;
 	color: #333;
 }
@@ -248,26 +229,55 @@ footer table a {
 	display: inline-block;	
 }
 
-section {
-	display: block;
+.banner h1, .banner h2, .banner h3 {
+	font-family: 'Open Sans', sans-serif;
+	color: #fff;
+}
+
+.banner h2 {
+	font-family: 'Open Sans', sans-serif;
+	color: #fff;
 }
 
 h1 {
-	font-family: 'Open Sans', sans-serif;
 	font-size: 50px;
-	color: #fff;
+}
+
+h2 {
+	font-size: 30px;
+}
+
+.banner h3 {
+	border: none;
+	width: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 h3 {
-	font-family: 'Open Sans', sans-serif;
-	font-size: 30px;
-	color: #fff;
+	color: #333;
+	font-size: 20px;
+	margin: 10px auto;
+	width: 180px;
+	text-align: center;
+	border-bottom: 2px solid gray;
+}
+
+h4 {
+	font-size: 18px;
+	margin-top: 10px;
+	color: #515151;
+	margin-bottom: 2px;
+	font-weight: bold;
 }
 
 h5 {
-	font-family: 'Open Sans', sans-serif;
-	font-size: 20px;
-	color: #fff;
+	font-size: 12px;
+	color: #111;
+	font-weight: bold;
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+	border-bottom: 2px solid gray;
 }
 
 .noselect {
@@ -278,9 +288,56 @@ h5 {
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
-            user-select: none;
 }
 
+.project-image {
+	margin: 0px 10px 5px 0px;
+	width: 350px;
+	display: inline-block;
+}
+
+.project:last-of-type hr {
+	display: none;
+}
+
+.project hr {
+	height: 0;
+	width: 50%;
+	border-top: 1px solid #b1b1b1;
+	margin-bottom: 25px;
+}
+
+.project-info {
+	float: right;
+	max-width: 350px;
+}
+
+.project-buttons {
+	margin: 5px;
+}
+
+.project-buttons.large {
+	margin: 15px;
+}
+
+.large .button {
+	width: 150px;
+	font-size: 16px;
+	margin: 0 25px;
+}
+
+.project .button {
+	width: 100px;
+	margin: 10px;
+}
+.project img {
+	box-shadow: 2px 2px 5px #aaa;
+}
+
+.more {
+	text-align: right;
+	width: 100%;
+}
 
 form {
     font-family: 'Open Sans', arial, sans;
@@ -297,40 +354,44 @@ form input[type="email"],
 form input[type="time"],
 form textarea
 {
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    outline: none;
-    display: block;
     width: 100%;
-    padding: 7px 0;
     border: none;
     border-bottom: 1px solid #ddd;
     background: transparent;
-    margin-bottom: 10px;
     font: 16px Arial, Helvetica, sans-serif;
     height: 45px;
     transition: .25s;
 }
 
+form input[type="text"],
+form input[type="email"],
+form input[type="time"],
+form textarea,
 form .g-recaptcha {
 	box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     outline: none;
     display: block;
-    width: 50px;
     padding: 7px 0;
     background: transparent;
     margin-bottom: 10px;
+}
+
+form .g-recaptcha {
+	width: 50px;
 }
 
 form textarea{
     resize:none;
     overflow: hidden;
 }
-form input[type="button"],
-form input[type="submit"]{
+
+.centered {
+	text-align: center;
+}
+
+.button{
     -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
     -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
     box-shadow: inset 0px 1px 0px 0px #45D6D6;
@@ -345,20 +406,25 @@ form input[type="submit"]{
     text-decoration: none;
     text-transform: uppercase;
 }
-form input[type="button"]:hover,
-form input[type="submit"]:hover {
+
+.button:hover {
     background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
     background-color:#34CACA;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 850px) {
 	nav {
 		opacity: .75;
 	}
 }
 
-@media screen and (max-width: 700px) {
-	.navbar-item {
+@media screen and (max-width: 850px) {
+	.content-box {
+		width: 40%;
+		min-width: 320px;
+	}
+
+	.navbar-item, nav.sidebar .menu-icon {
 		display: none;
 	}
 
@@ -366,44 +432,49 @@ form input[type="submit"]:hover {
 		text-align: center;
 		width: 100%;
 		margin: 15px auto;
-		font-size: 30px;
+		font-size: 15px;
 	}
 
 	nav.sidebar .navbar-item {
 		display: block;
+		background-color: inherit;
 	}
 
-	html.hidden {
+	.hidden {
 		overflow: hidden;
 	}
+
 	nav ul {
 		overflow: hidden;
 		height: 0;
 		transition-duration: 0.5s;
 	}
 
-	.menu-icon {
-		font-size: 1.5rem;
+	.large .button {
+		width: 125px;
+		margin: 0;
+	}
+
+	.sidebar-icon {
 		position: fixed;
 		top: 0px;
 		right: 0px;
 		z-index: 2;
-		display: inline-block;
-		text-align: center;
-		padding: .5rem 0;
-		height: 3rem;
-		width: 64px;
-		color: #818181;
+		padding: .5rem 0;		
 	}
 
-	.menu-icon:hover {
-		color: #111;
-		background-color: darkgray;
+	.menu-icon {
+		font-size: 1.5rem;
+		text-align: center;
+		display: inline-block;
+		width: 64px;
+		color: #818181;
+		height: 3rem;
 	}
 
 	nav.sidebar ul {
 		width: 100%;
-		padding: 100px 0 0 0;
+		padding: 75px 0 0 0;
 		height: 100%;
 	}
 
@@ -420,53 +491,47 @@ form input[type="submit"]:hover {
    		transition-duration: 0.5s;
 	}
 
-	nav.sidebar .menu-icon {
-		display: none;
-	}
-
-	nav.sidebar .navbar-item {
-		display: block;
-	}
-
-	nav.sidebar a {
-		width: 100%;
-		height: 20%;
-	}
-
 	nav.sidebar a.close-button {
-		font-size: 3.5rem;
-		position: fixed;
-		top: 0px;
-		right: 0px;
-		z-index: 2;
-		display: inline-block;
+		font-size: 2rem;	
 		text-align: right;
-		padding: .5rem 0;
 		padding-right: 1.5rem;
-		height: 3rem;
 		width: 128px;
 		color: white;
+		display: inline-block;
+		background: transparent;
 	}
 
-	nav.sidebar a.close-button:hover {
+	.active, nav li:hover, nav.sidebar a.close-button:hover {
 		color: #818181;
-	}
-
-	.active, nav li:hover {
-		color: #818181;
-		background-color: inherit;q
 	}
 
 	.active {
 		text-decoration: none;
 	}
-}
 
-@media screen and (max-height: 575px){ 
+	.project-image {
+		width: 300px;
+	}
+
+	.project-info {
+		float: none;
+	}
+
 	#rc-imageselect, .g-recaptcha {
 		transform:scale(0.85);
 		-webkit-transform:scale(0.85);
 		transform-origin:0 0;
 		-webkit-transform-origin:0 0;
+	}
+}
+
+@media screen and (max-height: 300px) {
+	.navbar-item a {
+		font-size: 12px;
+		margin: 10px auto;
+	}
+
+	nav.sidebar ul {
+		padding: 30px 0 0 0;
 	}
 }

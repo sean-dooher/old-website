@@ -2,7 +2,7 @@
 * @Author: sean
 * @Date:   2017-04-26 19:08:37
 * @Last Modified by:   sean-dooher
-* @Last Modified time: 2017-07-15 16:28:00
+* @Last Modified time: 2017-07-16 01:05:16
 */
 
 'use strict';
@@ -57,11 +57,22 @@ function changeActiveNav(newNavNode) {
 	}		
 }
 
+function detectLeftButton(event) {
+    if ('buttons' in event) {
+        return event.buttons === 1;
+    } else if ('which' in event) {
+        return event.which === 1;
+    } else {
+        return event.button === 1;
+    }
+}
+
 document.onclick = function (e) {
   e = e ||  window.event;
   var element = e.target || e.srcElement;
-  if (element.tagName == 'A' && element.parentElement.classList.contains("navbar-item")) {
-  	var destinationName = element.firstChild.data.toLowerCase();
+  if (e.which === 1 && element.tagName == 'A' 
+  	  && element.parentElement.classList.contains("navbar-item")) {
+  	var destinationName = element.getAttribute("href").replace("#", "");
   	var destination = document.getElementById(destinationName);
   	isScrolling = false;
   	changeActiveNav(element.parentElement);
@@ -79,9 +90,8 @@ document.onclick = function (e) {
 
 var contentBoxes = document.getElementsByClassName("content-box");
 function findActiveNav() {
-	//TODO: change method of finding new li
 	var center = window.pageYOffset + window.innerHeight / 2;
-	for(var i = 1; i < contentBoxes.length; i++) {
+	for(var i = 0; i < contentBoxes.length; i++) {
 		if(center >= contentBoxes[i].offsetTop 
 			&& center <= contentBoxes[i].offsetTop + contentBoxes[i].offsetHeight) {
 			changeActiveNav(document.querySelectorAll('a[href="#' + contentBoxes[i].id + '"]')[0].parentElement);
@@ -91,7 +101,7 @@ function findActiveNav() {
 
 window.onscroll = findActiveNav;
 window.onresize = function() {
-	if(window.matchMedia("screen and (min-width: 700px)").matches && sideBarOpen) {
+	if(window.matchMedia("screen and (min-width: 850px)").matches && sideBarOpen) {
 		closeSideBar();
 	}
 	findActiveNav();
@@ -111,4 +121,9 @@ function closeSideBar() {
 		document.getElementsByTagName("nav")[0].classList.remove("sidebar");
 		sideBarOpen = false;
 	}
+}
+
+function adjust_textarea(h) {
+    h.style.height = "20px";
+    h.style.height = (h.scrollHeight)+"px";
 }
