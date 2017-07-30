@@ -2,7 +2,7 @@
 * @Author: sean-dooher
 * @Date:   2017-07-29 14:11:10
 * @Last Modified by:   sean-dooher
-* @Last Modified time: 2017-07-30 03:48:10
+* @Last Modified time: 2017-07-30 03:59:23
 */
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -81,7 +81,7 @@ nav a, .menubar a {
 	transition: all .5s;
 }
 
-.nav-item:hover, .active {
+nav a:hover, .active {
 	background-color: #818181;
 }
 
@@ -295,12 +295,12 @@ form .g-recaptcha {
 		padding-right: 0;
 	}
 
-	.nav-item, .nav-item:hover, .active, .menubar a {
+	nav a, nav a:hover, .active, .menubar a {
 		display: block;
 		background-color: inherit;
 	}
 
-	.menubar a:hover, .nav-item:hover, .active {
+	.menubar a:hover, nav a:hover, .active {
 		color: #818181;
 	}
 
