@@ -11,149 +11,105 @@
 		<script src="index.js" defer></script>
 	</head>
 	<body>
-		<nav class="centered">
-			<ul>
-				<li class="noselect navbar-item active"><a href="#about" class="no-outline">About</a></li><!--
-			 --><li class="noselect navbar-item"><a href="#projects" class="no-outline">Featured Projects</a></li><!--
-			 --><li class="noselect navbar-item"><a href="#experience" class="no-outline">Experience</a></li><!--
-			 --><li class="noselect navbar-item"><a href="#contact" class="no-outline">Contact</a></li>
-			</ul>
-			<a href="javascript:void(0);" onclick="openSideBar()" class="noselect no-outline sidebar-icon menu-icon">&#9776;</a>
-			<a href="javascript:void(0);" onclick="closeSideBar()" class="noselect no-outline sidebar-icon close-button">&times;</a>
+		<nav class="noselect">
+			<a href="#about" class="active nav-item">About</a><!--
+		 --><a href="#projects" class="nav-item">Projects</a><!--
+		 --><a href="#experience" class="nav-item">Experience</a><!--
+		 --><a href="#contact" class="nav-item">Contact</a>
 		</nav>
+		<div class="menubar noselect">
+			<a href="javascript:void(0);" onclick="toggleSideBar()" id="menuButton">&#9776;</a>
+		</div>
 		<div class="banner">
 			<div id="profile-box">
-				<span id="profile-picture"></span>
+				<div id="profile-picture"></div>
 				<div id="profile-text">
 					<h1>Sean Dooher</h1>
 					<h2>Student Cat</h2>
 					<h3>UC Berkeley</h3>
 				</div>
-				<br>
 			</div>
 		</div>
 		<div id="main-content">
-			<div id="about" class="content-box">
-				<h2 class="content-header">About</h2>
-				<div class="content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a tristique est. Nunc tincidunt convallis ex non sollicitudin. Phasellus fermentum urna orci, quis venenatis odio vestibulum vitae. Duis faucibus suscipit balandit. Ut et convallis tellus. Nam pulvinar, purus nec pulvinar blandit, quam magna accumsan orci, vel efficitur nunc tortor sed erat. In felis mauris, bibendum at pellentesque id, fermentum at felis. Morbi dignissim diam id venenatis accumsan. Vivamus tempus lectus vitae turpis vehicula, vitae placerat tellus semper. Fusce facilisis dolor non faucibus tempor. Vestibulum lacinia rutrum condimentum. Nullam feugiat rutrum vulputate. Ut scelerisque porta mauris, id rutrum ipsum dapibus id. Pellentesque eget mi eu libero fermentum posuere. Suspendisse vel ultrices odio.</p>
+			<section id="about">
+				<div class="centered">
+					<h2>About</h2>
 				</div>
-			</div>
-			<div id="projects" class="content-box">
-				<h2 class="content-header">Featured Projects</h2>
-				<div class="project-buttons centered large">
-					<div class="button">See All</div>
-					<div class="button">Github</div>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a tristique est. Nunc tincidunt convallis ex non sollicitudin. Phasellus fermentum urna orci, quis venenatis odio vestibulum vitae. Duis faucibus suscipit balandit. Ut et convallis tellus. Nam pulvinar, purus nec pulvinar blandit, quam magna accumsan orci, vel efficitur nunc tortor sed erat. In felis mauris, bibendum at pellentesque id, fermentum at felis. Morbi dignissim diam id venenatis accumsan. Vivamus tempus lectus vitae turpis vehicula, vitae placerat tellus semper. Fusce facilisis dolor non faucibus tempor. Vestibulum lacinia rutrum condimentum. Nullam feugiat rutrum vulputate. Ut scelerisque porta mauris, id rutrum ipsum dapibus id. Pellentesque eget mi eu libero fermentum posuere. Suspendisse vel ultrices odio.</p>
+			</section>
+			<section id="projects">
+				<div class="centered">
+					<h2>Featured Projects</h2>
 				</div>
-				<div class="content">
-					<div class="project">
-						<div class="project-image centered">
-							<a href="#IFE" class="no-outline"><img src="img/IFE.png" alt="IFE" class="project-image"></a>
-						</div>
-						<div class="project-info">
-							<h4 class="project-title">Indian Flavors Express</h4>
-							<h5 class="project-date">August 2016</h5>
-							<div class="project-text">
-							This local joint was the culinary highlight of my freshman year. To return the favor for all the delicious meals I have enjoyed here, I've teamed up with a group of 43 other IFE enthusiasts to build a drone based delivery system for the restaurant. This delivery system uses the lastest in blockchain and machine learning technologies to delivery this food faster than the speed of light.
-							</div>
-						</div>
-						<div class="project-buttons centered">
-							<div class="button">Website</div>
-							<div class="button">Code</div>
-						</div>
-						<hr>
+				<div class="centered">
+					<a href="https://github.com/sean-dooher" class="button large">Github</a><!--
+				 --><a href="#projects" class="button large">See All</a>
+				</div>
+				<div class="project centered">
+					<a href="#IFE"><img src="img/IFE.png" alt="IFE" class="project-image"></a>
+					<div class="project-info">
+						<h3>Indian Flavors Express</h3>
+						<h4 class="date">August 2016</h4>
+						<p>This local joint was the culinary highlight of my freshman year. To return the favor for all the delicious meals I have enjoyed here, I've teamed up with a group of 43 other IFE enthusiasts to build a drone based delivery system for the restaurant. This delivery system uses the lastest in blockchain and machine learning technologies to delivery this food faster than the speed of light.</p>
 					</div>
-					<div class="project">
-						<div class="project-image centered">
-							<a href="#IFE" class="no-outline"><img src="img/IFE.png" alt="IFE" class="project-image"></a>
-						</div>
-						<div class="project-info">
-							<h4 class="project-title">Indian Flavors Express</h4>
-							<h5 class="project-date">August 2016</h5>
-							<div class="project-text">
-							This local joint was the culinary highlight of my freshman year. To return the favor for all the delicious meals I have enjoyed here, I've teamed up with a group of 43 other IFE enthusiasts to build a drone based delivery system for the restaurant. This delivery system uses the lastest in blockchain and machine learning technologies to delivery this food faster than the speed of light.
-							</div>
-						</div>
-						<div class="project-buttons centered">
-							<div class="button">Website</div>
-							<div class="button">Demo</div>
-							<div class="button">Code</div>
-						</div>
-						<hr>
+					<div class="centered">
+						<a class="button">Website</a><!--
+					 --><a class="button">Code</a>
 					</div>
-					<div class="project">
-						<div class="project-image centered">
-							<a href="#IFE" class="no-outline"><img src="img/IFE.png" alt="IFE" class="project-image"></a>
-						</div>
-						<div class="project-info">
-							<h4 class="project-title">Indian Flavors Express</h4>
-							<h5 class="project-date">August 2016</h5>
-							<div class="project-text">
-							This local joint was the culinary highlight of my freshman year. To return the favor for all the delicious meals I have enjoyed here, I've teamed up with a group of 43 other IFE enthusiasts to build a drone based delivery system for the restaurant. This delivery system uses the lastest in blockchain and machine learning technologies to delivery this food faster than the speed of light.
-							</div>
-						</div>
-						<div class="project-buttons centered">
-							<div class="button">Website</div>
-							<div class="button">Demo</div>
-							<div class="button">Code</div>
-						</div>
-						<hr>
-					</div>
-					<div class="project">
-						<div class="project-image centered">
-							<a href="#IFE" class="no-outline"><img src="img/IFE.png" alt="IFE" class="project-image"></a>
-						</div>
-						<div class="project-info">
-							<h4 class="project-title">Indian Flavors Express</h4>
-							<h5 class="project-date">August 2016</h5>
-							<div class="project-text">
-							This local joint was the culinary highlight of my freshman year. To return the favor for all the delicious meals I have enjoyed here, I've teamed up with a group of 43 other IFE enthusiasts to build a drone based delivery system for the restaurant. This delivery system uses the lastest in blockchain and machine learning technologies to delivery this food faster than the speed of light.
-							</div>
-						</div>
-						<div class="project-buttons centered">
-							<div class="button">Website</div>
-							<div class="button">Demo</div>
-							<div class="button">Code</div>
-						</div>
-						<hr>
-					</div>
+					<hr>
 				</div>
-			</div>
-			<div id="experience" class="content-box">
-				<h2 class="content-header">Experience</h2>
-				<div class="content">
-					<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a tristique est. Nunc tincidunt convallis ex non sollicitudin. Phasellus fermentum urna orci, quis venenatis odio vestibulum vitae. Duis faucibus suscipit blandit. Ut et convallis tellus. Nam pulvinar, purus nec pulvinar blandit, quam magna accumsan orci, vel efficitur nunc tortor sed erat. In felis mauris, bibendum at pellentesque id, fermentum at felis. Morbi dignissim diam id venenatis accumsan. Vivamus tempus lectus vitae turpis vehicula, vitae placerat tellus semper. Fusce facilisis dolor non faucibus tempor. Vestibulum lacinia rutrum condimentum. Nullam feugiat rutrum vulputate. Ut scelerisque porta mauris, id rutrum ipsum dapibus id. Pellentesque eget mi eu libero fermentum posuere. Suspendisse vel ultrices odio.</p>
-					<br>
-					<p> Cras id metus vitae nisl hendrerit congue. Morbi rutrum rhoncus nunc eu posuere. Aliquam porttitor consectetur arcu posuere ullamcorper. Donec ornare consequat auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas auctor leo a sollicitudin lacinia. Integer nec ultricies sapien, a sagittis odio. Aenean eu ultrices felis. Etiam egestas erat nec diam gravida, convallis faucibus metus suscipit. Cras elit nulla, lacinia eu est id, euismod vulputate dolor. Integer nec leo quis nisi elementum commodo. Duis nibh sapien, venenatis id volutpat ac, pellentesque ac lacus. Quisque sagittis nec mauris at viverra. Fusce sit amet nisi quis est faucibus eleifend. Fusce porttitor purus est, non ultrices est lobortis quis. Proin quis nibh tempor, vulputate sem nec, vehicula augue.</p>
-					<br>
-					<p> Cras id metus vitae nisl hendrerit congue. Morbi rutrum rhoncus nunc eu posuere. Aliquam porttitor consectetur arcu posuere ullamcorper. Donec ornare consequat auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas auctor leo a sollicitudin lacinia. Integer nec ultricies sapien, a sagittis odio. Aenean eu ultrices felis. Etiam egestas erat nec diam gravida, convallis faucibus metus suscipit. Cras elit nulla, lacinia eu est id, euismod vulputate dolor. Integer nec leo quis nisi elementum commodo. Duis nibh sapien, venenatis id volutpat ac, pellentesque ac lacus. Quisque sagittis nec mauris at viverra. Fusce sit amet nisi quis est faucibus eleifend. Fusce porttitor purus est, non ultrices est lobortis quis. Proin quis nibh tempor, vulputate sem nec, vehicula augue.</p>
+			</section>
+			<section id="experience">
+				<div class="centered">
+					<h2>Experience</h2>
 				</div>
-			</div>
-			<div id="contact" class = "content-box">
-				<h2 class="content-header">Contact</h2>
-				<div class="content">
-					<form action="">
-						<input type="text" name="text" placeholder="Full Name" />
-						<input type="email" name="email" placeholder="Email" />
-						<input type="text" name="subject" placeholder="Subject" />
-						<textarea placeholder="Message" onkeyup="adjust_textarea(this)"></textarea>
-						<div class="g-recaptcha" data-sitekey="TEMP KEY"></div>
-						<input type="button" class="button" value="Send Message" />
-					</form>
+				<div class="experience-item">
+					<h3>Place</h3>
+					<h4 class="date">December 2017 - January 2018</h4>
+					<ul>
+						<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ipsa dignissimos fuga dolore! Cumque, dignissimos, vel.</li>
+						<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ipsa dignissimos fuga dolore! Cumque, dignissimos, vel.</li>
+						<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ipsa dignissimos fuga dolore! Cumque, dignissimos, vel.</li>
+					</ul>
 				</div>
-			</div>
-			<footer class="centered">
-				<table>
-					<tr>
-						<td><a href="https://github.com/sean-dooher" class="no-outline"><i class="fa fa-github-square" aria-hidden="true"></i></a></td>
-						<td></td>
-						<td><a href="mailto:sean@dooher.net" class="no-outline"><i class="fa fa-envelope" aria-hidden="true"></i></a></td>
-						<td></td>
-						<td><a href="https://www.linkedin.com/in/sean-dooher" class="no-outline"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></td>
-					</tr>
-				</table>
-				<p>Copyright 2017 &copy; Sean Dooher</p>
-			</footer>
+				<div class="experience-item">
+					<h3>Place</h3>
+					<h4 class="date">December 2017 - January 2018</h4>
+					<ul>
+						<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ipsa dignissimos fuga dolore! Cumque, dignissimos, vel.</li>
+						<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ipsa dignissimos fuga dolore! Cumque, dignissimos, vel.</li>
+						<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ipsa dignissimos fuga dolore! Cumque, dignissimos, vel.</li>
+					</ul>
+				</div>
+				<div class="experience-item">
+					<h3>Place</h3>
+					<h4 class="date">December 2017 - January 2018</h4>
+					<ul>
+						<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ipsa dignissimos fuga dolore! Cumque, dignissimos, vel.</li>
+						<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ipsa dignissimos fuga dolore! Cumque, dignissimos, vel.</li>
+						<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ipsa dignissimos fuga dolore! Cumque, dignissimos, vel.</li>
+					</ul>
+				</div>		
+			</section>
+			<section id="contact">
+				<div class="centered">
+					<h2>Contact</h2>
+				</div>
+				<form action="">
+					<input type="text" name="text" placeholder="Full Name" />
+					<input type="email" name="email" placeholder="Email" />
+					<input type="text" name="subject" placeholder="Subject" />
+					<textarea placeholder="Message" onkeyup="adjust_textarea(this)"></textarea>
+					<div class="g-recaptcha" data-sitekey="TEMP KEY"></div>
+					<input type="button" class="button" value="Send Message" />
+				</form>
+			</section>
 		</div>
+		<footer class="centered">
+				<a href="https://github.com/sean-dooher"><i class="fa fa-github-square" aria-hidden="true"></i></a><!--
+			 --><a href="mailto:sean@dooher.net"><i class="fa fa-envelope" aria-hidden="true"></i></a><!--
+			 --><a href="https://www.linkedin.com/in/sean-dooher"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+				<p>Copyright 2017 &copy; Sean Dooher</p>
+		</footer>
 	</body>
 </html>
