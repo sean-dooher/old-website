@@ -2,7 +2,7 @@
 * @Author: sean
 * @Date:   2017-04-26 19:08:37
 * @Last Modified by:   sean-dooher
-* @Last Modified time: 2017-07-30 18:04:21
+* @Last Modified time: 2017-07-30 18:44:06
 */
 
 'use strict';
@@ -129,9 +129,12 @@ function toggleSideBar() {
 	}
 }
 
-function adjust_textarea(h) {
-    h.style.height = "20px";
-    h.style.height = (h.scrollHeight)+"px";
+function adjust_textarea(textarea) {
+	if(textarea.scrollHeight < 45) {
+		textarea.style.height = "45px";
+	} else if (textarea.style.height.replace("px", "") < textarea.scrollHeight){
+		textarea.style.height = (textarea.scrollHeight)+"px";
+	}
 }
 
 function sendMessage() {
