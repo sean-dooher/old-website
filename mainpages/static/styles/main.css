@@ -2,7 +2,7 @@
 * @Author: sean-dooher
 * @Date:   2017-07-29 14:11:10
 * @Last Modified by:   sean-dooher
-* @Last Modified time: 2017-07-30 18:07:30
+* @Last Modified time: 2017-07-30 20:19:05
 */
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -307,8 +307,15 @@ form textarea
 .load-complete .loader {
   -webkit-animation: none;
   animation: none;
-  border-color: #5cb85c;
   transition: border 500ms ease-out;
+}
+
+.success .loader {
+	border-color: #5cb85c;
+}
+
+.fail .loader {
+	border-color: #ff0033;
 }
 
 .checkmark {
@@ -318,13 +325,13 @@ form textarea
 .load-complete .checkmark {
 	display: initial;
 }
-.checkmark.draw:after {
+.success .checkmark.draw:after {
   animation-duration: 800ms;
   animation-timing-function: ease;
   animation-name: checkmark;
   transform: scaleX(-1) rotate(135deg);
 }
-.checkmark:after {
+.success .checkmark:after {
   opacity: 1;
   height: 4em;
   width: 2em;
@@ -336,6 +343,17 @@ form textarea
   top: 4em;
   position: absolute;
   z-index: 1;
+}
+
+.fail .checkmark:after {
+	content: '×';
+	font-weight: 300;
+	color: #ff0033;
+	position: absolute;
+	top: 50%;
+	right: 50%;
+	line-height: 0;
+	transform: translate(50%, 50%) scale(8, 8);
 }
 
 @keyframes loader-spin {

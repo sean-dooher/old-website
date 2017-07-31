@@ -22,5 +22,6 @@ from django.conf import settings
 urlpatterns = [
     url(r'^$', mainviews.main),
     url(r'^admin/', admin.site.urls),
+    url(r'^message/', mainviews.message),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

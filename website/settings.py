@@ -80,6 +80,10 @@ DATABASES = {
     }
 }
 
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators

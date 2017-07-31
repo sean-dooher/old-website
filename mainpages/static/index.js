@@ -2,7 +2,7 @@
 * @Author: sean
 * @Date:   2017-04-26 19:08:37
 * @Last Modified by:   sean-dooher
-* @Last Modified time: 2017-07-30 19:01:48
+* @Last Modified time: 2017-07-30 19:56:42
 */
 
 'use strict';
@@ -144,7 +144,7 @@ function sendMessage() {
 	loaderText.innerHTML = "Sending Message..."
 
 	var request = new XMLHttpRequest();
-	request.open("POST", "./message", true);
+	request.open("POST", "./message/", true);
 	request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	var requestString = "";
 	for (var i = 0; i < form.elements.length - 1; i++) {
@@ -156,18 +156,17 @@ function sendMessage() {
 	}
 
 	request.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			console.log(this.responseText);
-		} else {
-			console.log("Something went wrong :c");
+		if (this.readyState == 4) {
+			form.classList.add('load-complete');
+			if(this.status == 200) {
+				loaderText.innerHTML = "Message Sent!"
+				form.classList.add('success');
+			} else {
+				loaderText.innerHTML = "Message Failed to Send";
+				form.classList.add('fail');
+			}
 		}
 	};
 	request.send(requestString);
-
-	function onComplete() {
-		form.classList.add('load-complete');
-		loaderText.innerHTML = "Message Sent!";
-	}
-	setTimeout(onComplete, 1000);
 	return false;
 }
