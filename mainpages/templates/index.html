@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Sean Dooher - Student</title>
+		<meta name="keywords" content="UC Berkeley, Computer Science, CS, Projects, Resume">
+		<meta name="author" content="Sean Dooher">
+		{% load static %}
+		<link rel="stylesheet" type="text/css" href="{% static 'styles/main.css' %}"/>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+		<script src="https://use.fontawesome.com/41da94ab9e.js"></script>
+		<script src="{% static 'index.js' %}" defer></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	</head>
+	<body>
+		<nav class="noselect">
+			<a href="#about" class="active">About</a><!--
+		 --><a href="#projects" >Projects</a><!--
+		 --><a href="#experience" >Experience</a><!--
+		 --><a href="#contact" >Contact</a>
+		</nav>
+		<div class="menubar noselect">
+			<a href="javascript:void(0);" onclick="toggleSideBar()" id="menuButton">&#9776;</a>
+		</div>
+		<div class="banner">
+			<div id="profile-box">
+				<div id="profile-picture"></div>
+				<div id="profile-text">
+					<h1>{{ profile_header }}</h1>
+					<h2>{{ profile_subheader }}</h2>
+					<h3>{{ profile_occupation }}</h3>
+				</div>
+			</div>
+		</div>
+		<div id="main-content">
+			<section id="about">
+				<div class="centered">
+					<h2>About</h2>
+				</div>
+				<p>{{ about_text }}</p>
+			</section>
+			<section id="projects">
+				<div class="centered">
+					<h2>Featured Projects</h2>
+				</div>
+				<div class="centered">
+					<a href="https://github.com/sean-dooher" class="button large">Github</a><!--
+				 --><a href="#projects" class="button large">See All</a>
+				</div>
+				{% for project in projects %}
+					{% include 'project.html' %}
+				{% endfor %}
+			</section>
+			<section id="experience">
+				<div class="centered">
+					<h2>Experience</h2>
+				</div>
+				{% for experience_item in experience %}
+					{% include 'experience.html' %}
+				{% endfor %}
+			</section>
+			<section id="contact">
+				<div class="centered">
+					<h2>Contact</h2>
+				</div>
+				<form id="contactForm" onsubmit="return sendMessage()">
+					<div class="centered load-container">
+						<div class="loader">
+							<div class="checkmark draw"></div>
+						</div>
+						<p></p>
+					</div>
+					<input type="text" name="text" placeholder="Full Name" required/>
+					<input type="email" name="email" placeholder="Email" required/>
+					<input type="text" name="subject" placeholder="Subject" required/>
+					<textarea placeholder="Message" onkeyup="adjust_textarea(this)" required></textarea>
+					<button class="button">Send Message</button>
+				</form>
+			</section>
+		</div>
+		<footer class="centered">
+				<a href="https://github.com/sean-dooher"><i class="fa fa-github-square" aria-hidden="true"></i></a><!--
+			 --><a href="mailto:sean@dooher.net"><i class="fa fa-envelope" aria-hidden="true"></i></a><!--
+			 --><a href="https://www.linkedin.com/in/sean-dooher"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+				<p>Copyright 2017 &copy; Sean Dooher</p>
+		</footer>
+	</body>
+</html>

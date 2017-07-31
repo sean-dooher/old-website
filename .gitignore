@@ -1,0 +1,6 @@
+media/*
+*.sqlite3
+secrets.py
+*.sublime-*
+*/__pycache__/*
+*/migrations/*

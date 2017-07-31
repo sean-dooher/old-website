@@ -2,7 +2,7 @@
 * @Author: sean-dooher
 * @Date:   2017-07-29 14:11:10
 * @Last Modified by:   sean-dooher
-* @Last Modified time: 2017-07-30 03:59:23
+* @Last Modified time: 2017-07-30 18:07:30
 */
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -57,6 +57,37 @@ body {
 	transition: .5s;
 }
 
+.group {
+	display: inline-block;
+}
+
+.button{
+    box-shadow: inset 0 1px 0 0 #45D6D6;
+    background-color: #2CBBBB;
+    border: 1px solid #27A0A0;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 14px;
+    padding: 8px 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.button:hover, .button:focus {
+	outline: none;
+    background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+    background-color:#34CACA;
+}
+
+.button[disabled]:hover {
+	cursor: initial;
+	background: initial;
+	background-color: #2CBBBB;
+}
+
 .menubar {
 	display: none;
 }
@@ -86,7 +117,7 @@ nav a:hover, .active {
 }
 
 .banner {
-	background-image: url(img/banner_front.jpg);
+	background-image: url('../media/banner_front.jpg');
 	background-size: cover;
 	background-position: center;
 	overflow: hidden;
@@ -95,7 +126,7 @@ nav a:hover, .active {
 }
 
 #profile-picture {
-	background-image: url(img/profile.jpg);
+	background-image: url('../media/profile.jpg');
 	background-size: cover;
 	width: 300px;
 	height: 300px;
@@ -194,26 +225,6 @@ section {
 	margin-bottom: 10px;
 }
 
-.button{
-    box-shadow: inset 0 1px 0 0 #45D6D6;
-    background-color: #2CBBBB;
-    border: 1px solid #27A0A0;
-    display: inline-block;
-    cursor: pointer;
-    color: #FFFFFF;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 14px;
-    padding: 8px 18px;
-    text-decoration: none;
-    text-transform: uppercase;
-    text-align: center;
-}
-
-.button:hover {
-    background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
-    background-color:#34CACA;
-}
-
 footer {
 	padding-bottom: 10px;
 }
@@ -249,26 +260,116 @@ form textarea
     transition: .25s;
     resize:none;
     overflow: hidden;
-}
-
-form input[type="text"],
-form input[type="email"],
-form input[type="time"],
-form textarea,
-form .g-recaptcha {
 	box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    outline: none;
     display: block;
     padding: 7px 0;
     background: transparent;
     margin-bottom: 10px;
 }
 
-form .g-recaptcha {
-	width: 50px;
+
+.submitted .load-container {
+	opacity: 1;
 }
+
+.load-container {
+	opacity: 0;
+	transition: opacity .5s ease-in;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0);
+	z-index: 1;
+	background-color: #fcfcfc;
+	box-shadow: 2px 2px 2px 2px #aaa;
+	padding: 35px;
+}
+
+.submitted .loader {
+  margin: 0 0 30px 10px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-top-color: #5cb85c;
+  animation: loader-spin 2s ease infinite;
+  animation-delay: .5s;
+  display: inline-block;
+  position: relative;
+  padding: 0;
+}
+
+.submitted .loader,
+.submitted .loader:after {
+  border-radius: 50%;
+  width: 8em;
+  height: 8em;
+}
+
+.load-complete .loader {
+  -webkit-animation: none;
+  animation: none;
+  border-color: #5cb85c;
+  transition: border 500ms ease-out;
+}
+
+.checkmark {
+  display: none;
+}
+
+.load-complete .checkmark {
+	display: initial;
+}
+.checkmark.draw:after {
+  animation-duration: 800ms;
+  animation-timing-function: ease;
+  animation-name: checkmark;
+  transform: scaleX(-1) rotate(135deg);
+}
+.checkmark:after {
+  opacity: 1;
+  height: 4em;
+  width: 2em;
+  transform-origin: left top;
+  border-right: 2px solid #5cb85c;
+  border-top: 2px solid #5cb85c;
+  content: '';
+  left: 2em;
+  top: 4em;
+  position: absolute;
+  z-index: 1;
+}
+
+@keyframes loader-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes checkmark {
+  0% {
+    height: 0;
+    width: 0;
+    opacity: 1;
+  }
+  20% {
+    height: 0;
+    width: 2em;
+    opacity: 1;
+  }
+  40% {
+    height: 4em;
+    width: 2em;
+    opacity: 1;
+  }
+  100% {
+    height: 4em;
+    width: 2em;
+    opacity: 1;
+  }
+}
+
 
 @media screen and (max-width: 850px) {
 	nav {
