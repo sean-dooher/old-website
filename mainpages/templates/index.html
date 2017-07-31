@@ -70,10 +70,11 @@
 						</div>
 						<p></p>
 					</div>
-					<input type="text" name="text" placeholder="Full Name" required/>
+					{% csrf_token %}
+					<input type="text" name="name" placeholder="Full Name" required/>
 					<input type="email" name="email" placeholder="Email" required/>
 					<input type="text" name="subject" placeholder="Subject" required/>
-					<textarea placeholder="Message" onkeydown="adjust_textarea(this)" required></textarea>
+					<textarea name="message" placeholder="Message" oninput="adjust_textarea(this)" required></textarea>
 					<button class="button">Send Message</button>
 				</form>
 			</section>

@@ -2,7 +2,7 @@
 * @Author: sean
 * @Date:   2017-04-26 19:08:37
 * @Last Modified by:   sean-dooher
-* @Last Modified time: 2017-07-30 18:44:06
+* @Last Modified time: 2017-07-30 19:01:48
 */
 
 'use strict';
@@ -142,10 +142,27 @@ function sendMessage() {
 	form.classList.add("submitted");
 	var loaderText = document.querySelector('.load-container p');
 	loaderText.innerHTML = "Sending Message..."
-	for (var i = 0; i < form.elements.length; i++) {
-		console.log(form.elements[i].value);
+
+	var request = new XMLHttpRequest();
+	request.open("POST", "./message", true);
+	request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	var requestString = "";
+	for (var i = 0; i < form.elements.length - 1; i++) {
+		requestString += form.elements[i].name + "=" + form.elements[i].value;
+		if(i < form.elements.length - 2) {
+			requestString += "&";
+		}
 		form.elements[i].disabled = true;
 	}
+
+	request.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			console.log(this.responseText);
+		} else {
+			console.log("Something went wrong :c");
+		}
+	};
+	request.send(requestString);
 
 	function onComplete() {
 		form.classList.add('load-complete');
