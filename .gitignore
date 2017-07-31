@@ -4,3 +4,4 @@ secrets.py
 *.sublime-*
 */__pycache__/*
 */migrations/*
+__pycache__/*
