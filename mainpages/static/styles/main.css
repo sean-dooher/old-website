@@ -2,7 +2,7 @@
 * @Author: sean-dooher
 * @Date:   2017-07-29 14:11:10
 * @Last Modified by:   sean-dooher
-* @Last Modified time: 2017-08-10 18:25:48
+* @Last Modified time: 2017-08-10 18:28:12
 */
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -117,7 +117,7 @@ nav a:hover, .active {
 }
 
 .banner {
-	background-image: url('../media/banner_alternative.jpg.jpg');
+	background-image: url('../media/banner_alternative.jpg');
 	background-size: cover;
 	background-position: center;
 	overflow: hidden;
