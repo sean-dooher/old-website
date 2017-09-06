@@ -1,9 +1,7 @@
 <div class="experience-item">
 	<h3><span class="group">{{ experience_item.location }}</span> - <span class="group">{{ experience_item.role }}</span></h3>
 	<h4 class="date">{{experience_item.formatted_start}} - {{experience_item.formatted_end}}</h4>
-	<ul>
-		{% for bullet in experience_item.bullets.all %}
-		<li>{{ bullet.text }}</li>
-		{% endfor %}
-	</ul>
+	{% for bullet in experience_item.bullets.all %}
+	<p>{{ bullet.text }}</p>
+	{% endfor %}
 </div>
