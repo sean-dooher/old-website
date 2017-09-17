@@ -155,7 +155,7 @@ nav a:hover, .active {
 }
 
 #main-content {
-	width: 750px;
+	width: 800px;
 	margin: 0 auto;
 }
 
@@ -186,7 +186,7 @@ section {
 }
 
 .project-info {
-	max-width: 400px;
+	max-width: 450px;
 	margin-left: 15px;
 	display: inline-block;
 	text-align: left;
