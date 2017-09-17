@@ -134,6 +134,9 @@ nav a:hover, .active {
 	border: 2px solid black;
 	display: inline-block; 
 }
+#profile-picture:hover {
+	background-image: url('../media/profile1.jpg');
+}
 
 .banner h1, .banner h2, .banner h3 {
 	color: white;
