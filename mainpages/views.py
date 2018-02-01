@@ -13,8 +13,8 @@ def constants(request):
 	return constant_values
 
 def main(request):
-	projects = Project.objects.filter(featured=True)
-	experience = ExperienceItem.objects.all()
+	projects = Project.objects.filter(featured=True).order_by('priority').all()
+	experience = ExperienceItem.objects.order_by('priority').all()
 	information = {'projects':projects, 'experience':experience}
 	return render(request, 'index.html', information)
 

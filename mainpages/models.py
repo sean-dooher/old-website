@@ -14,6 +14,7 @@ class Project(models.Model):
 	image = models.ImageField(upload_to='projects/')
 	image_alt = models.CharField(max_length=50)
 	image_link = models.CharField(max_length=100)
+	priority = models.IntegerField(default=100)
 
 	def __str__(self):
 		return self.title
@@ -34,6 +35,7 @@ class ExperienceItem(models.Model):
 	start_date = models.DateField()
 	end_date = models.DateField()
 	current = models.BooleanField()
+	priority = models.IntegerField(default=100)
 
 	def __str__(self):
 		return self.location + " - " + self.role
@@ -49,6 +51,11 @@ class ExperienceItem(models.Model):
 		else:
 			return self.end_date.strftime('%B %Y')
 
+	@property
+	def ordered_bullets(self):
+		return self.bullets.order_by('priority')
+
 class ExperienceBullet(models.Model):
 	item = models.ForeignKey(ExperienceItem, related_name="bullets", on_delete=models.CASCADE)
-	text = models.CharField(max_length=240)
+	text = models.CharField(max_length=500)
+	priority = models.IntegerField(default=100)

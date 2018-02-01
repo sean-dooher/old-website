@@ -2,7 +2,7 @@
 * @Author: sean-dooher
 * @Date:   2017-07-29 14:11:10
 * @Last Modified by:   sean-dooher
-* @Last Modified time: 2017-08-10 21:48:21
+* @Last Modified time: 2018-02-01 15:48:24
 */
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -231,6 +231,10 @@ section {
 
 .experience-item {
 	margin-bottom: 10px;
+}
+
+.experience-item p {
+	margin-bottom: 15px;
 }
 
 footer {
