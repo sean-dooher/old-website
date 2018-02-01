@@ -116,6 +116,11 @@ nav a:hover, .active {
 	background-color: #818181;
 }
 
+body::after{
+    position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
+    content:url('../media/profile.jpg') url('../media/profile1.jpg');
+}
+
 .banner {
 	background-image: url('../media/banner_front.jpg');
 	background-size: cover;
