@@ -17,7 +17,7 @@ class Project(models.Model):
 	priority = models.IntegerField(default=100)
 
 	def __str__(self):
-		return self.title
+		return self.title +  "-" + str(self.priority)
 
 	@property
 	def formatted_date(self):
@@ -38,7 +38,7 @@ class ExperienceItem(models.Model):
 	priority = models.IntegerField(default=100)
 
 	def __str__(self):
-		return self.location + " - " + self.role
+		return self.location + " - " + self.role + " - " + str(self.priority)
 
 	@property
 	def formatted_start(self):
