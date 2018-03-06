@@ -1,8 +1,14 @@
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
 /*
 * @Author: sean-dooher
 * @Date:   2017-07-29 14:11:10
 * @Last Modified by:   sean-dooher
-* @Last Modified time: 2018-02-01 15:48:24
+* @Last Modified time: 2018-03-06 15:00:21
 */
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -36,6 +42,12 @@ body {
 	overflow-x: hidden;
 	background-color: #fefefe;
 	color: #444;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
 }
 
 .noselect {
@@ -163,7 +175,7 @@ body::after{
 }
 
 #main-content {
-	width: 800px;
+	width: 1000px;
 	margin: 0 auto;
 }
 
@@ -188,13 +200,22 @@ section {
 	font-size: 16px;
 }
 
+.project-content {
+	display: flex;
+	align-items: center;
+}
+
 .project-image {
-	width: 300px;
+	display: inline-block;
+}
+
+.project-image img {
+	width: 400px;
 	box-shadow: 2px 2px 5px #aaa;
 }
 
 .project-info {
-	max-width: 450px;
+	max-width: 550px;
 	margin-left: 15px;
 	display: inline-block;
 	text-align: left;
