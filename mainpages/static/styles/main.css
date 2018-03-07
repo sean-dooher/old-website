@@ -8,7 +8,7 @@
 * @Author: sean-dooher
 * @Date:   2017-07-29 14:11:10
 * @Last Modified by:   sean-dooher
-* @Last Modified time: 2018-03-06 15:17:28
+* @Last Modified time: 2018-03-06 17:29:33
 */
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -212,7 +212,7 @@ section {
 }
 
 .project-image img {
-	width: 400px;
+	max-width: 400px;
 	box-shadow: 2px 2px 5px #aaa;
 }
 
@@ -441,7 +441,7 @@ form textarea
 
 	section, #main-content {
 		width: 80%;
-		min-width: 400px;
+		min-width: 325px;
 	}
 
 	section {
@@ -463,7 +463,7 @@ form textarea
 	}
 	
 	.project-image img {
-		max-width: 400px;
+		max-width: 320px;
 	}
 
 	.g-recaptcha {
